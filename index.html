@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Songs That Remind Me of You</title>
+
+  <!-- Same font pairing used in your existing design -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-background" id="pageBackground"></div>
+  <div class="soft-overlay"></div>
+
+  <div class="music-notes" aria-hidden="true">
+    <span>♪</span><span>♫</span><span>♪</span><span>♬</span><span>♫</span>
+  </div>
+
+  <main class="app-shell">
+    <header class="page-header">
+      <h1>Songs thats remind me of you ♡</h1>
+      <p>July edition</p>
+    </header>
+
+    <section class="content-stage">
+      <button class="side-arrow left-arrow" id="previousPage" aria-label="Previous page">
+        <span>‹</span>
+      </button>
+
+      <div class="page-layout" id="pageLayout">
+        <!-- LEFT: MUSIC PLAYER -->
+        <article class="player-card">
+          <div class="record-area">
+            <div class="record-glow"></div>
+
+            <div class="vinyl" id="vinyl">
+              <div class="vinyl-lines"></div>
+              <img id="coverImage" class="cover-image" src="" alt="Song cover placeholder" />
+            </div>
+
+            <div class="tonearm" id="tonearm">
+              <span class="tonearm-tip"></span>
+            </div>
+          </div>
+
+          <div class="song-copy">
+            <h2 id="songTitle">Song title</h2>
+            <p id="songArtist">Artist</p>
+          </div>
+
+          <div class="progress-row">
+            <span id="currentTime">0:00</span>
+            <div class="progress-track" id="progressTrack">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span id="duration">0:00</span>
+          </div>
+
+          <div class="controls">
+            <button id="previousTrack" class="control-button" aria-label="Previous track">|‹</button>
+            <button id="playPause" class="play-button" aria-label="Play">
+              <span id="playIcon">▶</span>
+            </button>
+            <button id="nextTrack" class="control-button" aria-label="Next track">›|</button>
+          </div>
+        </article>
+
+        <!-- RIGHT: GIRL IMAGE AREA -->
+        <aside class="portrait-panel">
+          <div class="portrait-effects" aria-hidden="true">
+            <span class="heart heart-one">♡</span>
+            <span class="heart heart-two">♡</span>
+            <span class="heart heart-three">♡</span>
+            <span class="portrait-note">♫</span>
+          </div>
+
+          <div class="portrait-frame">
+            <img id="girlImage" class="girl-image" src="" alt="Add your image here" />
+            <div class="portrait-placeholder" id="portraitPlaceholder">
+              <strong>Add your image here</strong>
+              <span>Use a transparent PNG for the closest match.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <button class="side-arrow right-arrow" id="nextPage" aria-label="Next page">
+        <span>›</span>
+      </button>
+    </section>
+
+    <div class="page-dots" id="pageDots" aria-label="Page selector"></div>
+  </main>
+
+  <audio id="audio"></audio>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Love ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+.heart{
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#ffffff;
+}
+
+body{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ===========================
+BACKGROUND
+=========================== */
+
+.bg-hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-2;
+    background:
+    radial-gradient(circle at top,#ffeef5,#ffffff 60%),
+    linear-gradient(180deg,#ffffff,#fff9fc);
+}
+
+.bg-hearts::before,
+.bg-hearts::after{
+    content:"❤";
+    position:absolute;
+    color:#ffb3c7;
+    opacity:.15;
+    animation:float 14s linear infinite;
+    font-size:90px;
+}
+
+.bg-hearts::before{
+    left:12%;
+    bottom:-100px;
+}
+
+.bg-hearts::after{
+    right:15%;
+    bottom:-150px;
+    animation-delay:6s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+20%{
+opacity:.18;
+}
+
+80%{
+opacity:.18;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* ===========================
+PAGES
+=========================== */
+
+.page{
+    position:absolute;
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    width:100%;
+    height:100dvh;
+
+    padding:25px;
+
+    text-align:center;
+
+    animation:fade .5s;
+}
+
+.active{
+    display:flex;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:scale(.97);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+/* ===========================
+HEART PAGE
+=========================== */
+
+.heartArea{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.heartGif{
+    width:180px;
+    cursor:pointer;
+    transition:.3s;
+    user-select:none;
+}
+
+.heartGif:hover{
+    transform:scale(1.08);
+}
+
+.heartGif:active{
+    transform:scale(.95);
+}
+
+.intro h2{
+    color:#ff4f87;
+    margin-top:45px;
+    font-size:30px;
+}
+
+.intro p{
+    color:#666;
+    margin-top:10px;
+}
+
+.heartArea{
+    position:relative;
+    width:150px;
+    height:150px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.heart{
+
+width:90px;
+height:90px;
+
+background:#ff4f87;
+
+transform:rotate(-45deg);
+
+cursor:pointer;
+
+position:relative;
+
+animation:heartbeat 1.1s infinite;
+
+box-shadow:
+0 15px 40px rgba(255,70,120,.35);
+
+}
+
+.heart::before,
+.heart::after{
+
+content:"";
+
+position:absolute;
+
+width:90px;
+height:90px;
+
+background:#ff4f87;
+
+border-radius:50%;
+
+}
+
+.heart::before{
+top:-45px;
+left:0;
+}
+
+.heart::after{
+left:45px;
+top:0;
+}
+
+@keyframes heartbeat{
+
+0%{
+transform:rotate(-45deg) scale(1);
+}
+
+25%{
+transform:rotate(-45deg) scale(1.08);
+}
+
+50%{
+transform:rotate(-45deg) scale(1.18);
+}
+
+75%{
+transform:rotate(-45deg) scale(1.08);
+}
+
+100%{
+transform:rotate(-45deg) scale(1);
+}
+
+}
+
+/* rings */
+
+.ring{
+position:absolute;
+
+width:140px;
+height:140px;
+
+border-radius:50%;
+
+border:2px solid rgba(255,95,145,.25);
+
+animation:ring 2.2s infinite;
+}
+
+.ring2{
+animation-delay:1s;
+}
+
+@keyframes ring{
+
+0%{
+transform:scale(.7);
+opacity:1;
+}
+
+100%{
+transform:scale(1.5);
+opacity:0;
+}
+
+}
+
+/* ===========================
+LOCK PAGE
+=========================== */
+
+.lockContainer{
+width:100%;
+max-width:360px;
+}
+
+.smallHeart{
+
+width:55px;
+height:55px;
+
+margin:auto;
+
+margin-bottom:25px;
+
+background:#ff4f87;
+
+transform:rotate(-45deg);
+
+position:relative;
+
+}
+
+.smallHeart::before,
+.smallHeart::after{
+
+content:"";
+
+position:absolute;
+
+width:55px;
+height:55px;
+
+border-radius:50%;
+
+background:#ff4f87;
+
+}
+
+.smallHeart::before{
+
+top:-27px;
+
+}
+
+.smallHeart::after{
+
+left:27px;
+
+}
+
+.lockContainer h2{
+color:#ff4f87;
+margin-bottom:25px;
+}
+
+#pinDisplay{
+
+width:210px;
+
+height:65px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:34px;
+
+letter-spacing:10px;
+
+text-align:center;
+
+outline:none;
+
+background:white;
+
+box-shadow:
+0 12px 35px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+.keypad{
+
+display:grid;
+
+grid-template-columns:repeat(3,80px);
+
+gap:15px;
+
+justify-content:center;
+
+}
+
+.keypad button{
+
+height:72px;
+
+border:none;
+
+border-radius:22px;
+
+background:white;
+
+font-size:25px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.25s;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.keypad button:hover{
+
+transform:translateY(-4px);
+
+background:#fff4f7;
+
+}
+
+.ok{
+
+background:#ff4f87 !important;
+
+color:white;
+
+}
+
+.clear{
+
+background:#f5f5f5 !important;
+
+}
+
+#errorText{
+
+    margin-top:20px;
+
+    min-height:48px;
+
+    color:#7b6a78;
+
+    font-size:14px;
+
+    font-style:italic;
+
+    line-height:1.6;
+
+    text-align:center;
+
+    transition:opacity .35s ease;
+
+}
+
+/* ===========================
+DASHBOARD — COOL GLASS INTERFACE
+=========================== */
+
+#page3{
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 15% 18%, rgba(255,255,255,.95), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(223,239,255,.78), transparent 30%),
+        radial-gradient(circle at 76% 82%, rgba(226,216,255,.72), transparent 32%),
+        linear-gradient(135deg,#fffdf8 0%,#eef7ff 48%,#f4efff 100%);
+}
+
+#page3::before,
+#page3::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    filter:blur(3px);
+    pointer-events:none;
+}
+
+#page3::before{
+    width:330px;
+    height:330px;
+    left:-90px;
+    bottom:-110px;
+    background:linear-gradient(145deg,rgba(255,218,163,.42),rgba(255,255,255,.05));
+}
+
+#page3::after{
+    width:270px;
+    height:270px;
+    right:-70px;
+    top:-90px;
+    background:linear-gradient(145deg,rgba(171,210,255,.46),rgba(228,213,255,.24));
+}
+
+.dashboard{
+    position:relative;
+    z-index:2;
+    width:min(900px,94vw);
+    padding:52px 54px 56px;
+    margin:auto;
+    border:1px solid rgba(255,255,255,.82);
+    border-radius:42px;
+    background:rgba(255,255,255,.48);
+    backdrop-filter:blur(24px);
+    box-shadow:0 30px 80px rgba(55,73,107,.16);
+}
+
+/* .dashboard::before{
+    content:"OUR LITTLE SPACE";
+    display:inline-flex;
+    padding:8px 16px;
+    margin-bottom:18px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2.4px;
+    color:#60718d;
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(124,150,187,.18);
+} */
+
+.dashboard h1{
+    margin:0 0 12px;
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(2.2rem,5vw,4rem);
+    line-height:1.05;
+    letter-spacing:-2px;
+    color:#25334a;
+}
+
+.subtitle{
+    max-width:560px;
+    margin:0 auto 38px;
+    color:#69758a;
+    line-height:1.75;
+    font-size:1rem;
+    white-space:pre-line;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+    width:100%;
+}
+
+.cards button{
+    position:relative;
+    isolation:isolate;
+    min-height:255px;
+    width:100%;
+    padding:32px 28px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.9);
+    border-radius:32px;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    text-align:left;
+    transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+    box-shadow:0 18px 42px rgba(53,71,101,.12);
+}
+
+.cards button::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    width:190px;
+    height:190px;
+    right:-65px;
+    top:-65px;
+    border-radius:50%;
+    background:rgba(255,255,255,.34);
+    transition:transform .4s ease;
+}
+
+.cards button::after{
+    content:"↗";
+    position:absolute;
+    right:25px;
+    bottom:22px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:21px;
+    color:#34425a;
+    background:rgba(255,255,255,.62);
+    backdrop-filter:blur(10px);
+}
+
+.cards button:hover{
+    transform:translateY(-9px) scale(1.015);
+    border-color:#fff;
+    box-shadow:0 28px 55px rgba(53,71,101,.18);
+}
+
+.cards button:hover::before{
+    transform:scale(1.3);
+}
+
+.cards button:nth-child(1){
+    background:linear-gradient(145deg,#fff3c9 0%,#ffe2a8 48%,#ffd5b8 100%);
+}
+
+.cards button:nth-child(2){
+    background:linear-gradient(135deg,
+    #FFF0F7,
+    #FFD1E8,
+    #FFB6D5);
+}
+
+.iconCircle{
+    width:78px;
+    height:78px;
+    margin-bottom:24px;
+    border-radius:24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#31415a;
+    background:rgba(255,255,255,.68);
+    border:1px solid rgba(255,255,255,.85);
+    box-shadow:0 12px 28px rgba(55,73,107,.12);
+    backdrop-filter:blur(12px);
+}
+
+.iconCircle i{
+    font-size:32px;
+}
+
+.cards h3{
+    margin:0 0 9px;
+    font-size:1.55rem;
+    font-weight:700;
+    color:#25334a;
+}
+
+.cards p{
+    max-width:220px;
+    margin:0;
+    padding:0;
+    font-size:.94rem;
+    line-height:1.55;
+    color:#5e6c81;
+}
+
+@media(max-width:700px){
+    #page3{overflow-y:auto;}
+    .dashboard{
+        width:min(94vw,560px);
+        padding:34px 22px 30px;
+        border-radius:30px;
+    }
+    .dashboard h1{letter-spacing:-1px;}
+    .subtitle{margin-bottom:26px;}
+    .cards{grid-template-columns:1fr;gap:16px;}
+    .cards button{min-height:190px;padding:25px 23px;border-radius:26px;}
+    .iconCircle{width:64px;height:64px;margin-bottom:18px;border-radius:20px;}
+    .iconCircle i{font-size:27px;}
+}
+
+@media(max-width:430px){
+    .keypad{grid-template-columns:repeat(3,70px);gap:12px;}
+    .keypad button{height:65px;font-size:22px;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-hearts"></div>
+
+<!-- ========================= -->
+<!-- PAGE 1 -->
+<!-- ========================= -->
+
+<section id="page1" class="page active">
+
+<div class="intro">
+
+<div class="heartArea">
+
+    <img
+        id="mainHeart"
+        src="https://media.tenor.com/zOam3hodgeEAAAAi/black-heart-line-coeur-vide.gif"
+        alt="Heart"
+        class="heartGif">
+
+</div>
+
+<h2>Tap My Heart ❤️</h2>
+
+<p>
+A tiny world made just for you.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- PAGE 2 -->
+<!-- ========================= -->
+
+<section id="page2" class="page">
+
+<div class="lockContainer">
+
+<div>
+<img width="50" height="50"
+class="cute"
+src="https://media.tenor.com/zOam3hodgeEAAAAi/black-heart-line-coeur-vide.gif">
+    
+</div>
+
+<h2>Enter Secret PIN</h2>
+
+<input
+id="pinDisplay"
+type="password"
+readonly
+placeholder="••••">
+
+<div class="keypad">
+
+<button onclick="press(1)">1</button>
+<button onclick="press(2)">2</button>
+<button onclick="press(3)">3</button>
+
+<button onclick="press(4)">4</button>
+<button onclick="press(5)">5</button>
+<button onclick="press(6)">6</button>
+
+<button onclick="press(7)">7</button>
+<button onclick="press(8)">8</button>
+<button onclick="press(9)">9</button>
+
+<button class="clear" onclick="clearPin()">
+<i class="fa-solid fa-delete-left"></i>
+</button>
+
+<button onclick="press(0)">0</button>
+
+<button class="ok" onclick="checkPin()">
+<i class="fa-solid fa-lock-open"></i>
+</button>
+
+</div>
+
+<p id="errorText"></p>
+
+</div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- PAGE 3 -->
+<!-- ========================= -->
+
+<section id="page3" class="page">
+
+<div class="dashboard">
+
+<h1>Hello Love ❤️</h1>
+
+<p class="subtitle">
+
+Welcome to your little universe, Everything here is made for you!
+
+</p>
+
+<div class="cards">
+
+<button onclick="goMusic()">
+    <div class="iconCircle">
+        <i class="fa-solid fa-music"></i>
+    </div>
+    <h3>Music</h3>
+    <p>Songs That remind me of you</p>
+</button>
+
+
+
+<button onclick="gocute()">
+    <div class="iconCircle">
+        <i class="fa-solid fa-comments"></i>
+    </div>
+    <h3>Cutenes meter</h3>
+    <p>Check your cuteness level. </p>
+</button>
+
+<!---
+<button onclick="goEmail()">
+    <div class="iconCircle">
+        <i class="fa-solid fa-envelope"></i>
+    </div>
+    <h3>Email</h3>
+    <p>Letters & memories</p>
+</button>
+
+<button onclick="goGame()">
+    <div class="iconCircle">
+        <i class="fa-solid fa-gamepad"></i>
+    </div>
+    <h3>Game</h3>
+    <p>Let's play</p>
+</button>
+
+<button onclick="goWork()">
+    <div class="iconCircle">
+        <i class="fa-solid fa-briefcase"></i>
+    </div>
+    <h3>Work</h3>
+    <p>Future plans</p>
+</button>
+
+<button onclick="goOther()">
+    <div class="iconCircle">
+        <i class="fa-solid fa-heart"></i>
+    </div>
+    <h3>Other</h3>
+    <p>Everything else</p>
+</button>
+-->
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>// ==========================
+// PASSWORD
+// ==========================
+
+const PASSWORD = "1007";
+
+let currentPin = "";
+
+// ==========================
+// PAGES
+// ==========================
+
+const page1 = document.getElementById("page1");
+const page2 = document.getElementById("page2");
+const page3 = document.getElementById("page3");
+
+const heart = document.getElementById("mainHeart");
+
+const pinDisplay = document.getElementById("pinDisplay");
+
+const errorText = document.getElementById("errorText");
+
+// ==========================
+// HEART CLICK
+// ==========================
+
+heart.addEventListener("click", () => {
+
+    page1.classList.remove("active");
+
+    setTimeout(() => {
+
+        page2.classList.add("active");
+
+    },250);
+
+});
+
+// ==========================
+// PIN FUNCTIONS
+// ==========================
+
+function press(number){
+
+    if(currentPin.length >= 4)
+        return;
+
+    currentPin += number;
+
+    pinDisplay.value = "•".repeat(currentPin.length);
+
+}
+
+function clearPin(){
+
+    currentPin = "";
+
+    pinDisplay.value = "";
+
+    errorText.innerHTML = "";
+
+}
+
+function checkPin(){
+
+    if(currentPin === PASSWORD){
+
+        unlock();
+
+    }else{
+
+        wrongPassword();
+
+    }
+
+}
+
+// ==========================
+// WRONG PASSWORD
+// ==========================
+
+function wrongPassword(){
+
+    errorText.innerHTML =
+    "Hint: Think about the day and month the most beautiful girl in my world arrived. 🌸";
+
+    navigator.vibrate?.(150);
+
+    const box = document.querySelector(".lockContainer");
+
+    box.animate([
+
+        {transform:"translateX(-8px)"},
+
+        {transform:"translateX(8px)"},
+
+        {transform:"translateX(-8px)"},
+
+        {transform:"translateX(8px)"},
+
+        {transform:"translateX(0px)"}
+
+    ],{
+
+        duration:350
+
+    });
+
+    setTimeout(()=>{
+
+        currentPin = "";
+
+        pinDisplay.value = "";
+
+    },700);
+
+}
+// ==========================
+// CORRECT PASSWORD
+// ==========================
+
+function unlock(){
+
+    errorText.style.color="#33aa55";
+
+    errorText.innerHTML="Unlocked ❤️";
+
+    setTimeout(()=>{
+
+        page2.classList.remove("active");
+
+        page3.classList.add("active");
+
+    },600);
+
+}
+
+// ==========================
+// NAVIGATION
+// ==========================
+
+function goMusic(){
+
+    window.location.href="index.html";
+
+}
+
+function gocute() {
+    window.location.href = "Cuteness-Meter.html";
+}
+
+function goEmail(){
+
+    window.location.href="email.html";
+
+}
+
+function goChat(){
+
+    window.location.href="chat.html";
+
+}
+
+function goGame(){
+
+    window.location.href="game.html";
+
+}
+
+function goWork(){
+
+    window.location.href="work.html";
+
+}
+
+function goOther(){
+
+    window.location.href="other.html";
+
+}
+
+// ==========================
+// KEYBOARD SUPPORT
+// ==========================
+
+document.addEventListener("keydown",(e)=>{
+
+    if(!page2.classList.contains("active"))
+        return;
+
+    if(e.key >= "0" && e.key <= "9"){
+
+        press(e.key);
+
+    }
+
+    if(e.key === "Backspace"){
+
+        currentPin = currentPin.slice(0,-1);
+
+        pinDisplay.value = "•".repeat(currentPin.length);
+
+    }
+
+    if(e.key === "Enter"){
+
+        checkPin();
+
+    }
+
+});</script>
+
+</body>
+</html>

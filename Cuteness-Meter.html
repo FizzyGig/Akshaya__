@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuteness Meter 💖</title>
+
+  <style>
+    :root {
+      --ink: #22222a;
+      --muted: #6f6b78;
+      --white: rgba(255, 255, 255, 0.82);
+      --yellow: #ffd85c;
+      --pink: #ff5f9e;
+      --blue: #62cfff;
+      --violet: #9a76ff;
+      --green: #5fe0a1;
+      --shadow: 0 30px 90px rgba(62, 46, 92, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255, 216, 92, 0.92), transparent 25%),
+        radial-gradient(circle at 92% 12%, rgba(98, 207, 255, 0.78), transparent 28%),
+        radial-gradient(circle at 87% 88%, rgba(154, 118, 255, 0.58), transparent 30%),
+        radial-gradient(circle at 10% 88%, rgba(255, 95, 158, 0.62), transparent 28%),
+        linear-gradient(135deg, #fff8d8 0%, #ffeaf4 35%, #eaf9ff 68%, #f4ebff 100%);
+      display: grid;
+      place-items: center;
+      padding: 22px;
+    }
+
+    .ambient {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.52;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .blob.one {
+      width: 150px;
+      height: 150px;
+      left: 4%;
+      top: 8%;
+      background: linear-gradient(145deg, var(--yellow), #ff9d6c);
+    }
+
+    .blob.two {
+      width: 190px;
+      height: 190px;
+      right: 4%;
+      bottom: 4%;
+      background: linear-gradient(145deg, var(--blue), var(--violet));
+      animation-delay: -3s;
+    }
+
+    .blob.three {
+      width: 95px;
+      height: 95px;
+      right: 18%;
+      top: 8%;
+      background: linear-gradient(145deg, var(--pink), #ffc8df);
+      animation-delay: -5s;
+    }
+
+    @keyframes float {
+      50% {
+        transform: translateY(-14px) rotate(5deg);
+      }
+    }
+
+    .shell {
+      position: relative;
+      z-index: 2;
+      width: min(1080px, 100%);
+      min-height: min(700px, calc(100vh - 44px));
+      padding: clamp(24px, 4vw, 50px);
+      border-radius: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.92);
+      background: var(--white);
+      backdrop-filter: blur(24px);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .shell::before,
+    .shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .shell::before {
+      width: 250px;
+      height: 250px;
+      right: -90px;
+      top: -90px;
+      background: linear-gradient(145deg, rgba(255, 95, 158, 0.25), rgba(255, 216, 92, 0.22));
+    }
+
+    .shell::after {
+      width: 190px;
+      height: 190px;
+      left: -70px;
+      bottom: -80px;
+      background: linear-gradient(145deg, rgba(98, 207, 255, 0.24), rgba(154, 118, 255, 0.24));
+    }
+
+    .intro,
+    .console {
+      position: relative;
+      z-index: 2;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: #222;
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 6px 6px 0 var(--yellow);
+    }
+
+    .kicker::before {
+      content: "✦";
+      color: var(--yellow);
+    }
+
+    h1 {
+      margin-top: 26px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.3rem, 7vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--pink);
+      font-style: italic;
+    }
+
+    .description {
+      max-width: 480px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 1.04rem;
+      line-height: 1.75;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 30px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(35, 33, 42, 0.08);
+      font-size: 0.82rem;
+      font-weight: 800;
+      box-shadow: 0 9px 22px rgba(52, 41, 65, 0.08);
+    }
+
+    .badge:nth-child(1) {
+      background: #fff2a8;
+      transform: rotate(-2deg);
+    }
+
+    .badge:nth-child(2) {
+      background: #dff5ff;
+      transform: rotate(2deg);
+    }
+
+    .badge:nth-child(3) {
+      background: #f0e2ff;
+      transform: rotate(-1deg);
+    }
+
+    .console {
+      padding: clamp(24px, 4vw, 40px);
+      border-radius: 32px;
+      background: #17151b;
+      color: #fff;
+      box-shadow:
+        18px 18px 0 rgba(255, 255, 255, 0.72),
+        0 24px 60px rgba(32, 25, 39, 0.28);
+      overflow: hidden;
+    }
+
+    .console-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+
+    .console-label {
+      color: #bdb6c4;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .live {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #a4f3c2;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .live::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 7px rgba(95, 224, 161, 0.11);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      50% {
+        box-shadow: 0 0 0 12px rgba(95, 224, 161, 0);
+      }
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      height: 64px;
+      padding: 0 66px 0 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      outline: none;
+      background: #28242e;
+      color: #fff;
+      font: 700 1rem Inter, "Segoe UI", sans-serif;
+      transition: 0.25s;
+    }
+
+    input::placeholder {
+      color: #8e8795;
+    }
+
+    input:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 5px rgba(255, 95, 158, 0.12);
+    }
+
+    .spark {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--yellow), var(--pink));
+      color: #1d1820;
+      font-size: 1.15rem;
+    }
+
+    .check-button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 18px 20px;
+      border: 0;
+      border-radius: 18px;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(90deg, var(--pink), var(--violet), var(--blue));
+      background-size: 200% 100%;
+      font: 800 1rem Inter, "Segoe UI", sans-serif;
+      box-shadow: 0 14px 30px rgba(121, 88, 255, 0.25);
+      transition: 0.25s;
+    }
+
+    .check-button:hover {
+      transform: translateY(-3px);
+      background-position: 100% 0;
+    }
+
+    .check-button:active {
+      transform: translateY(0);
+    }
+
+    .meter {
+      height: 18px;
+      margin-top: 28px;
+      padding: 4px;
+      border-radius: 999px;
+      background: #302b35;
+      overflow: hidden;
+    }
+
+    .fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--yellow), var(--pink), var(--violet), var(--blue), var(--green));
+      transition: width 1.35s cubic-bezier(0.2, 0.85, 0.2, 1);
+      box-shadow: 0 0 18px rgba(255, 95, 158, 0.45);
+    }
+
+    .score-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .score-copy {
+      color: #aaa1b2;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .score-value {
+      margin-top: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 8vw, 5.3rem);
+      line-height: 1;
+      color: #fff;
+    }
+
+    .sticker {
+      padding: 10px 13px;
+      border-radius: 14px;
+      background: var(--yellow);
+      color: #201c21;
+      font-size: 0.78rem;
+      font-weight: 900;
+      transform: rotate(3deg);
+    }
+
+    .message {
+      min-height: 58px;
+      margin-top: 19px;
+      color: #d8d2dc;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .shake {
+      animation: shake 0.35s ease;
+    }
+
+    @keyframes shake {
+      25% { transform: translateX(-7px); }
+      50% { transform: translateX(7px); }
+      75% { transform: translateX(-4px); }
+    }
+
+    @media (max-width: 820px) {
+      body {
+        padding: 14px;
+      }
+
+      .shell {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        border-radius: 30px;
+        padding: 26px 18px;
+      }
+
+      .intro {
+        text-align: center;
+      }
+
+      .description {
+        margin-inline: auto;
+      }
+
+      .badges {
+        justify-content: center;
+      }
+
+      .console {
+        border-radius: 25px;
+        box-shadow:
+          10px 10px 0 rgba(255, 255, 255, 0.72),
+          0 22px 48px rgba(32, 25, 39, 0.24);
+      }
+    }
+
+    @media (max-width: 460px) {
+      h1 {
+        font-size: 3.4rem;
+      }
+
+      .score-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .sticker {
+        align-self: flex-end;
+        margin-top: -52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span class="blob one"></span>
+    <span class="blob two"></span>
+    <span class="blob three"></span>
+  </div>
+
+  <main class="shell">
+    <section class="intro">
+      <span class="kicker">Official measurement</span>
+
+      <h1>
+        Cuteness
+        <span>Meter.</span>
+      </h1>
+
+      <p class="description">
+        Welcome to cuteness meter - Enter your name !
+      </p>
+
+      <div class="badges" aria-hidden="true">
+        <span class="badge">100% scientific</span>
+      </div>
+    </section>
+
+    <section class="console" id="console">
+      <div class="console-head">
+        <span class="console-label">Cuteness scanner</span>
+        <span class="live">Live</span>
+      </div>
+
+      <div class="input-wrap">
+        <label for="name">Your name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your name"
+          autocomplete="off"
+        />
+        <span class="spark" aria-hidden="true">✦</span>
+      </div>
+
+      <button class="check-button" id="checkButton" type="button">
+        Check Cuteness ✨
+      </button>
+
+      <div class="meter" aria-label="Cuteness result meter">
+        <div class="fill" id="fill"></div>
+      </div>
+
+      <div class="score-row">
+        <div>
+          <div class="score-copy">Detected level</div>
+          <div class="score-value" id="percent">0%</div>
+        </div>
+
+        <span class="sticker">Certified cute</span>
+      </div>
+
+      <p class="message" id="message">
+        Enter a name to begin the scan.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const nameInput = document.getElementById("name");
+    const fill = document.getElementById("fill");
+    const percent = document.getElementById("percent");
+    const message = document.getElementById("message");
+    const checkButton = document.getElementById("checkButton");
+    const consoleCard = document.getElementById("console");
+
+    function showResult(width, scoreText, resultMessage) {
+      fill.style.width = "0%";
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          fill.style.width = width;
+        });
+      });
+
+      percent.innerHTML = scoreText;
+      message.innerHTML = resultMessage;
+    }
+
+    function checkCute() {
+      const name = nameInput.value.trim().toLowerCase();
+
+      if (!name) {
+        showResult("0%", "0%", "Please enter your name first ✨");
+        consoleCard.classList.remove("shake");
+        void consoleCard.offsetWidth;
+        consoleCard.classList.add("shake");
+        nameInput.focus();
+        return;
+      }
+
+      if (name === "akshaya" || name === "akshh_raa") {
+        showResult(
+          "99%",
+          "99% ❤️",
+          "You're almost at the maximum level of cuteness! 🥰 any idea whats the one missing Xp"
+        );
+        return;
+      }
+
+      if (
+        name === "akshaya raj" ||
+        name === "akshaya rajkumar" ||
+        name === "akshaya raj kumar" ||
+        name === "akshaya r" ||
+        name === "r akshaya" ||
+        name === "akshh_raj"
+      ) {
+        showResult(
+          "100%",
+          "∞ 💖",
+          "🚨 Cuteness Overflow Detected! You're infinitely cute now! 💕"
+        );
+        return;
+      }
+
+      const score = Math.floor(Math.random() * 80);
+      let resultMessage = "";
+
+      if (score < 40) {
+        resultMessage = "Nahh... Better luck next time 😌";
+      } else if (score < 60) {
+        resultMessage = "Aagh... Pretty average 😄";
+      } else {
+        resultMessage = "Umm... Not bad 😊";
+      }
+
+      showResult(score + "%", score + "%", resultMessage);
+    }
+
+    checkButton.addEventListener("click", checkCute);
+
+    nameInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        checkCute();
+      }
+    });
+  </script>
+</body>
+</html>

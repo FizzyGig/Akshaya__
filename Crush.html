@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 A Little Surprise 💕</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* ============================
+   GOOGLE FONT
+============================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffb6d9,#ffd8ec);
+    font-family:'Poppins',sans-serif;
+}
+
+/* ========================= */
+
+
+.page h1{
+
+    margin:0;
+
+    color:#ff0066;
+
+    font-size:48px;
+
+    line-height:1.2;
+
+}
+.pagec{
+    width:100%;
+    display:flex;
+    max-width:700px;
+    max-height: 700px;
+    font-size: medium;
+
+}
+.page{
+
+    position:absolute;
+
+    width:90%;
+
+    max-width:700px;
+
+    background:rgba(255,255,255,.25);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    text-align:center;
+
+    display:none;
+
+    animation:fade .6s;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+
+.page.active{
+
+    display:block;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+/* ========================= */
+
+.title{
+
+font-size:45px;
+
+color:#ff007f;
+
+margin-bottom:20px;
+
+animation:float 2s infinite;
+
+}
+
+.subtitle{
+
+font-size:20px;
+
+margin-top:20px;
+
+color:#444;
+
+line-height:35px;
+
+}
+
+/* ========================= */
+
+.cute{
+    width:280px;
+    height:auto;
+}
+
+/* ========================= */
+
+@keyframes bounce{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+/* ========================= */
+
+.mainBtn{
+
+margin-top:30px;
+
+padding:18px 40px;
+
+font-size:22px;
+
+border:none;
+
+border-radius:50px;
+
+background:#ff2d7a;
+
+color:white;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.mainBtn:hover{
+
+transform:scale(1.08);
+
+background:#ff0066;
+
+}
+
+/* ========================= */
+
+.options{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+margin-top:30px;
+
+}
+
+.options button{
+
+padding:18px;
+
+font-size:22px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+background:white;
+
+transition:.3s;
+
+}
+
+.options button:hover{
+
+background:#ffd1e8;
+
+transform:scale(1.05);
+
+}
+
+/* ========================= */
+
+input[type=range]{
+
+width:90%;
+
+margin-top:40px;
+
+cursor:pointer;
+
+}
+
+#sliderValue{
+
+margin:25px;
+
+font-size:50px;
+
+color:#ff0066;
+
+}
+
+/* ========================= */
+
+.yesNo{
+
+display:flex;
+
+justify-content:center;
+
+gap:40px;
+
+margin-top:50px;
+
+}
+
+#yesBtn,
+#finalYes{
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:40px;
+
+background:#00d26a;
+
+color:white;
+
+font-size:24px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+#noBtn,
+#finalNo{
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff4b5c;
+
+color:white;
+
+font-size:24px;
+
+cursor:pointer;
+
+position:relative;
+
+transition:.25s;
+
+}
+
+/* ========================= */
+
+#nameBox{
+
+margin-top:30px;
+
+width:80%;
+
+padding:18px;
+
+font-size:22px;
+
+border-radius:15px;
+
+border:none;
+
+outline:none;
+
+}
+
+/* ========================= */
+
+#nameResult{
+
+margin-top:30px;
+
+font-size:25px;
+
+font-weight:bold;
+
+color:#ff0066;
+
+}
+
+/* ========================= */
+
+.stars{
+
+margin-top:40px;
+
+font-size:60px;
+
+cursor:pointer;
+
+}
+
+/* ========================= */
+
+h2{
+
+font-size:35px;
+
+color:#ff0066;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+margin-top:20px;
+
+font-size:22px;
+
+color:#444;
+
+}
+
+/* ========================= */
+
+#hearts{
+
+position:fixed;
+
+width:100%;
+
+height:100%;
+
+overflow:hidden;
+
+pointer-events:none;
+
+left:0;
+
+top:0;
+
+}
+
+.heart{
+
+position:absolute;
+
+color:#ff4d88;
+
+font-size:25px;
+
+animation:rise linear forwards;
+
+}
+
+@keyframes rise{
+
+0%{
+
+transform:translateY(100vh) scale(.5);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120px) scale(1.5);
+
+opacity:0;
+
+}
+
+}
+
+/* ========================= */
+
+canvas{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+pointer-events:none;
+}
+
+/* ========================= */
+
+@media(max-width:700px){
+
+.page{
+padding:25px;
+}
+
+.title{
+font-size:32px;
+}
+
+h2{
+font-size:28px;
+}
+
+.mainBtn{
+font-size:18px;
+padding:15px 30px;
+}
+
+.options button{
+font-size:18px;
+}
+.yesNo{
+flex-direction:column;
+align-items:center;
+gap:20px;}}
+
+.container{
+
+    width:600px;
+
+    max-width:90vw;
+
+    min-height:650px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+input{
+
+width:80%;
+
+padding:12px;
+
+font-size:18px;
+
+border-radius:10px;
+
+border:2px solid pink;
+
+}
+
+button{
+
+margin-top:20px;
+
+padding:12px 25px;
+
+font-size:18px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff4d94;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#ff1f7a;
+
+}
+.meter{
+
+    width:100%;
+
+    max-width:500px;
+
+    height:45px;
+
+    margin:35px auto;
+
+    border:4px solid hotpink;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    background:#ffe8f3;
+
+}
+
+#fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(to right,#ff2e88,#ff80bf);
+
+    transition:width 1.5s ease;
+
+    border-radius:50px;
+
+}
+
+#percent{
+
+color:#ff0066;
+
+font-size:40px;
+
+}
+
+#message{
+
+font-size:22px;
+
+font-weight:bold;
+
+color:#ff0066;
+
+}
+
+
+    </style>
+</head>
+
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------------------------    w                             -->
+
+
+
+ <body>
+
+<div id="hearts"></div>
+
+<!-- ================= LANDING PAGE ================= -->
+
+<section class="page active" id="page1">
+
+    <h1 class="title">
+        Hey Akshaya 💖
+    </h1>
+
+    <img
+        class="cute"
+        src="https://media.tenor.com/QbsVdi4RPTUAAAAi/cat-cute.gif"
+    >
+
+    <p class="subtitle">
+        I made something just for you...
+        <br><br>
+        Don't worry.. This will steal only few minutes of your Busy day though i cant guarentiee it won't steal your Heart 😎
+    </p>
+
+    <button class="mainBtn" onclick="nextPage(2)">
+        Start ❤️
+    </button>
+
+</section> 
+
+<!-- ================= QUESTION 1 ================= -->
+
+<section class="page" id="page2">
+
+
+<button onclick="correctCute()">
+
+More cute stuffs 
+</button>
+</div></div>
+<p id="cuteMessage"></p>
+
+</section>
+
+<!-- ================= QUESTION 2 ================= -->
+
+<section class="page" id="page3">
+
+<h2>
+
+Welcome to cuteness meter - Enter your name !
+
+</h2>
+
+
+<div class="container">
+
+<h1> Cuteness Meter 💖</h1>
+<br>
+
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name">
+
+<button onclick="checkCute()">
+
+Check Cuteness ✨
+
+</button>
+
+<div class="meter">
+
+<div id="fill"></div>
+
+</div>
+
+<h2 id="percent">0%</h2>
+
+<p id="message"></p>
+
+<button class="mainBtn"
+onclick="nextPage(4)">
+
+Next ➜
+
+</button>
+
+</div>
+</div>
+
+
+
+
+</section>
+
+<!-- ================= QUESTION 3 ================= -->
+
+<section class="page" id="page4">
+
+<h2>
+
+Would you go on a date with me? 🥹
+
+</h2>
+
+<div class="yesNo">
+
+<button
+id="yesBtn"
+onclick="nextPage(5)">
+
+YES ❤️
+
+</button>
+
+<button
+id="noBtn">
+
+NO 😒
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= QUESTION 4 ================= -->
+
+<section class="page" id="page5">
+
+<h2>
+
+Who's your favourite person? 😁
+
+</h2>
+
+<input
+id="nameBox"
+placeholder="Type here...">
+
+<br><br>
+
+<button
+class="mainBtn"
+onclick="checkName()">
+
+Submit
+
+</button>
+
+<p id="nameResult"></p>
+
+</section>
+
+<!-- ================= QUESTION 5 ================= -->
+
+<section class="page" id="page6">
+
+<h2>
+
+Rate my smile 😊
+
+</h2>
+
+<div class="stars">
+
+<span onclick="stars()">
+
+⭐
+
+</span>
+
+<span onclick="stars()">
+
+⭐
+
+</span>
+
+<span onclick="stars()">
+
+⭐
+
+</span>
+
+<span onclick="stars()">
+
+⭐
+
+</span>
+
+<span onclick="stars()">
+
+⭐
+
+</span>
+
+</div>
+
+<p>
+
+Don't worry...
+
+Every answer becomes 5 stars 😂
+
+</p>
+
+<button
+class="mainBtn"
+onclick="nextPage(7)">
+
+Continue
+
+</button>
+
+</section>
+
+<!-- ================= QUESTION 6 ================= -->
+
+<section class="page" id="page7">
+
+<h2>
+
+Would you like unlimited chocolates from me? 🍫
+
+</h2>
+
+<div class="options">
+
+<button onclick="nextPage(8)">
+
+YES 😍
+
+</button>
+
+<button onclick="nextPage(8)">
+
+YES DEFINITELY ❤️
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= QUESTION 7 ================= -->
+
+<section class="page" id="page8">
+
+<h2>
+
+One last question...
+
+</h2>
+
+<h1>
+
+Do you like me?
+
+🥹❤️
+
+</h1>
+
+<div class="yesNo">
+
+<button
+id="finalYes"
+onclick="finish()">
+
+YES ❤️
+
+</button>
+
+<button
+id="finalNo">
+
+NO 😅
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ================= FINAL PAGE ================= -->
+
+<section class="page" id="page9">
+
+<h1>
+
+🎉 YAYYYYY!! 🎉
+
+</h1>
+
+<h2>
+
+You officially made my day ❤️
+
+</h2>
+
+<img
+class="cute"
+src="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+
+<p>
+
+Sending unlimited hugs...
+
+🤗🤗🤗
+
+</p>
+
+<button
+class="mainBtn"
+onclick="location.reload()">
+
+Replay 💕
+
+</button>
+
+</section>
+
+<canvas id="confetti"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+<script >
+
+    // ===========================
+// LOVE WEBSITE SCRIPT
+// Part 1
+// ===========================
+
+// Current page
+let currentPage = 1;
+
+// Open a requested page directly, for example: Crush.html#page3
+window.addEventListener("DOMContentLoaded", () => {
+    const requestedPage = window.location.hash.replace("#page", "");
+    const pageNumber = Number(requestedPage);
+
+    if (Number.isInteger(pageNumber) && document.getElementById("page" + pageNumber)) {
+        nextPage(pageNumber);
+    }
+});
+
+// Yes button size
+let yesScale = 1;
+
+// Floating Hearts
+const hearts = document.getElementById("hearts");
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = ["❤️","💕","💖","💗","💘"][Math.floor(Math.random()*5)];
+
+    heart.style.left = Math.random()*100 + "%";
+
+    heart.style.animationDuration =
+        (3 + Math.random()*4) + "s";
+
+    heart.style.fontSize =
+        (20 + Math.random()*25) + "px";
+
+    hearts.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },7000);
+
+}
+
+setInterval(createHeart,250);
+
+
+// ===========================
+// Page Navigation
+// ===========================
+
+function checkCute(){
+
+let name=document.getElementById("name").value.trim().toLowerCase();
+
+let fill=document.getElementById("fill");
+
+let percent=document.getElementById("percent");
+
+let message=document.getElementById("message");
+
+
+// ❤️ Akshaya
+
+if(name==="akshaya"||name==="akshh_raa"){
+
+fill.style.width = "99%";
+
+percent.innerHTML="99% ❤️";
+
+message.innerHTML="You're almost at the maximum level of cuteness! 🥰 any idea what youre missing Xp";
+
+return;
+
+}
+
+
+// 💖 Akshaya Raj / Akshaya Rajkumar
+
+else if(
+
+name==="akshaya raj" ||name==="akshaya rajkumar"||name==="akshaya raj kumar"||name==="akshaya r"||name==="r akshaya"||name==="akshh_raj"
+
+){
+
+fill.style.width="100%";
+
+percent.innerHTML="∞ 💖";
+
+message.innerHTML="🚨 Cuteness Overflow Detected! You're infinitely cute now! 💕";
+
+return;
+
+}
+
+
+// 😂 Everyone Else
+
+let score=Math.floor(Math.random()*60);
+
+fill.style.width=score+"%";
+
+percent.innerHTML=score+"%";
+
+
+if(score<20){
+
+message.innerHTML="Nahh... Better luck next time 😌";
+
+}
+
+else if(score<40){
+
+message.innerHTML="Aagh... Pretty average 😄";
+
+}
+
+else{
+
+message.innerHTML="Umm... Not bad 😊";
+
+}
+
+}
+
+function nextPage(page){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(p=>p.classList.remove("active"));
+
+    document
+        .getElementById("page"+page)
+        .classList.add("active");
+
+    currentPage = page;
+
+}
+
+
+// ===========================
+// Question 1
+// ===========================
+
+function wrongCute(){
+
+document.getElementById("cuteMessage").innerHTML=
+
+"😂 Nice try! I secretly changed your answer to <b>The Cutest Human Ever ❤️</b>";
+
+setTimeout(()=>{
+
+nextPage(3);
+
+},1800);
+
+}
+
+function correctCute(){
+
+document.getElementById("cuteMessage").innerHTML=
+
+"Lets gooo !!";
+
+setTimeout(()=>{
+
+nextPage(3);
+
+},1500);
+
+}
+
+
+// ===========================
+// Slider always 100
+// ===========================
+
+const slider=document.getElementById("loveSlider");
+
+const value=document.getElementById("sliderValue");
+
+if(slider){
+
+slider.addEventListener("input",()=>{
+
+slider.value=100;
+
+value.innerHTML="100 ❤️";
+
+});
+
+}
+
+
+// ===========================
+// Escaping NO Button
+// ===========================
+
+const noBtn=document.getElementById("noBtn");
+
+if(noBtn){
+
+noBtn.addEventListener("mouseover",()=>{
+
+const x=Math.random()*(window.innerWidth-10);
+
+const y=Math.random()*(window.innerHeight-20);
+
+noBtn.style.position="fixed";
+
+noBtn.style.left=x+"px";
+
+noBtn.style.top=y+"px";
+
+});
+
+}
+
+
+// ===========================
+// Final NO Button
+// ===========================
+
+const finalNo=document.getElementById("finalNo");
+
+const finalYes=document.getElementById("finalYes");
+
+if(finalNo){
+
+finalNo.addEventListener("mouseover",()=>{
+
+const x=Math.random()*(window.innerWidth-120);
+
+const y=Math.random()*(window.innerHeight-80);
+
+finalNo.style.position="fixed";
+
+finalNo.style.left=x+"px";
+
+finalNo.style.top=y+"px";
+
+yesScale+=0.15;
+
+finalYes.style.transform=
+
+"scale("+yesScale+")";
+
+});
+
+}
+
+// ===========================
+// LOVE WEBSITE SCRIPT
+// Part 2
+// ===========================
+
+
+// Name Checker
+
+function checkName(){
+
+    const input=document.getElementById("nameBox");
+
+    const result=document.getElementById("nameResult");
+
+    let text=input.value.trim().toLowerCase();
+
+    if(text===""){
+
+        result.innerHTML="😂 You forgot to type something!";
+
+        return;
+
+    }
+
+    if(
+        text.includes("raj") ||
+        text.includes("raj kumar")
+    ){
+
+        result.innerHTML=
+        "🥹 Awww ❤️ I knew it!!";
+
+    }
+    else{
+
+        result.innerHTML=
+        "🤨 Hmm... I think autocorrect meant <b>Raj ❤️</b>";
+
+    }
+
+    setTimeout(function(){
+
+        nextPage(6);
+
+    },1800);
+
+}
+
+
+
+// ===========================
+// STAR RATING
+// ===========================
+
+function stars(){
+
+    document.querySelector(".stars").innerHTML=
+
+    "⭐⭐⭐⭐⭐";
+
+}
+
+
+
+// ===========================
+// FINAL PAGE
+// ===========================
+
+function finish(){
+
+    nextPage(9);
+
+    celebrate();
+
+}
+
+
+
+// ===========================
+// CONFETTI
+// ===========================
+
+function celebrate(){
+
+    if(typeof confetti==="undefined") return;
+
+    confetti({
+
+        particleCount:250,
+
+        spread:180,
+
+        origin:{
+            y:0.6
+        }
+
+    });
+
+}
+
+
+
+// ===========================
+// EXTRA HEART BURST
+// ===========================
+
+function heartBurst(){
+
+    for(let i=0;i<25;i++){
+
+        createHeart();
+
+    }
+
+}
+// ===========================
+// YES BUTTON EFFECT
+// ===========================
+
+if(finalYes){
+
+    finalYes.addEventListener("click",function(){
+
+        heartBurst();
+
+    });
+
+}
+
+// ===========================
+// Funny Welcome Console 😄
+// ===========================
+
+console.log("❤️ Website Loaded Successfully ❤️");
+console.log("Made with love 😄");
+
+
+
+// ===========================
+// Random Cute Messages
+// ===========================
+
+const messages=[
+
+"🥰 You're amazing!",
+
+"💖 Keep smiling!",
+
+"❤️ You're making someone very happy!",
+
+"🌸 You're awesome!",
+
+"😂 This website was made just for you!"
+
+];
+
+function randomMessage(){
+
+    const msg=messages[
+        Math.floor(Math.random()*messages.length)
+    ];
+
+    console.log(msg);
+
+}
+
+setInterval(randomMessage,8000);
+</script>
+
+</body>
+</html>
